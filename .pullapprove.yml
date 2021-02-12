@@ -18,7 +18,7 @@ groups:
 
   all_requests:
     conditions:
-      - "base.ref == 'master'"
+      - "base.ref == 'main'"
     reviewers: 
       users:
       - jenesh
