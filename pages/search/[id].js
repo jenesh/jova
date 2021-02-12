@@ -11,6 +11,7 @@ export async function getServerSideProps(context) {
   }
 }
 
+
 const SearchID = ({ data, id }) => {
   console.log(data)
   console.log(id)
