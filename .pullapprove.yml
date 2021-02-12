@@ -1,0 +1,37 @@
+version: 3
+
+pullapprove_conditions:
+- "base.ref == 'main'" # only review thing being merged into main
+
+notifications:
+- when: pull_request.opened
+  comment: "
+  Thanks for the PR! Make sure to add reviewers
+  and make sure the PR has enough context to review
+  with testing instructions and/or screenshots when
+  applicable!"
+
+- when: pullapprove.approved
+  comment: "Thanks @{{ author }}, you're good to merge! 🚀"
+
+groups:
+
+  all_requests:
+    conditions:
+      - "base.ref == 'master'"
+    reviewers: 
+      users:
+      - jenesh
+      - vonbarown
+      - ojones311
+
+    reviews:
+      required: 1
+
+      request: 4
+
+    labels:
+      # Each field is optional
+      approved: "✅ Approved"
+      pending: "Pending"
+      rejected: "❌ Rejected"
