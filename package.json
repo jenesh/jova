@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "npx eslint . --ext js,ts,jsx,ts,json --fix"
+    "lint": "npx eslint . --ext js,ts,jsx,ts,json --fix",
+    "format": "npx prettier --write src/**/*.{js,ts,tsx} && npx prettier --write *.{js,json}"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx,js}": [
