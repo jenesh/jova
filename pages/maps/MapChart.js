@@ -36,6 +36,24 @@ const MapChart = () => {
                 stroke="#FFF"
                 geography={geo}
                 fill="#DDD"
+                onClick={() => {
+                  const { name } = geo.properties;
+                  console.log(name);
+                }}
+                style={{
+                  default: {
+                    fill: '#D6D6DA',
+                    outline: 'none',
+                  },
+                  hover: {
+                    fill: '#F53',
+                    outline: 'none',
+                  },
+                  pressed: {
+                    fill: '#E42',
+                    outline: 'none',
+                  },
+                }}
               />
             ))}
             {geographies.map((geo) => {
