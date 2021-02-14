@@ -20,7 +20,7 @@ const TwitterFeed = ({ screenName }) => {
       <Timeline
         dataSource={{
           sourceType: 'profile',
-          screenName: screenName,
+          screenName
         }}
         options={{
           height: '900',
