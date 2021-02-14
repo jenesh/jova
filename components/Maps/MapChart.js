@@ -9,7 +9,7 @@ import {
   ZoomableGroup,
 } from 'react-simple-maps';
 
-import allStates from './data.json';
+import allStates from '../../assests/localized/mapData.json';
 
 const geoUrl = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json';
 
