@@ -25,7 +25,7 @@ const offsets = {
   DC: [49, 21],
 };
 
-const MapChart = () => {
+const MapChart = ({ setStateName }) => {
   return (
     <ComposableMap projection="geoAlbersUsa">
       <ZoomableGroup>
@@ -40,7 +40,7 @@ const MapChart = () => {
                   fill="#DDD"
                   onClick={() => {
                     const { name } = geo.properties;
-                    console.log(name);
+                    setStateName(name);
                   }}
                   style={{
                     default: {
