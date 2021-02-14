@@ -1,8 +1,6 @@
-import React from 'react'
+import React from 'react';
 import { Timeline } from 'react-twitter-widgets';
 export async function getServerSideProps(context) {
-
-
   return {
     props: {
       screenName: context.params.screenName,
@@ -11,8 +9,6 @@ export async function getServerSideProps(context) {
 }
 
 const TwitterFeed = ({ screenName }) => {
-  console.log(screenName);
-
   if (!screenName) return <h1>Loading...</h1>;
 
   return (
@@ -20,11 +16,11 @@ const TwitterFeed = ({ screenName }) => {
       <Timeline
         dataSource={{
           sourceType: 'profile',
-          screenName
+          screenName,
         }}
         options={{
           height: '750',
-          width:'700'
+          width: '700',
         }}
       />
     </div>
