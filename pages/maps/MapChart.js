@@ -6,7 +6,7 @@ import {
   Geography,
   Marker,
   Annotation,
-  ZoomableGroup
+  ZoomableGroup,
 } from 'react-simple-maps';
 
 import allStates from './data.json';
@@ -29,67 +29,66 @@ const MapChart = () => {
   return (
     <ComposableMap projection="geoAlbersUsa">
       <ZoomableGroup>
-        
-      <Geographies geography={geoUrl}>
-        {({ geographies }) => (
-          <>
-            {geographies.map((geo) => (
-              <Geography
-              key={geo.rsmKey}
-              stroke="#FFF"
-              geography={geo}
-              fill="#DDD"
-              onClick={() => {
-                const { name } = geo.properties;
-                console.log(name);
-              }}
-              style={{
-                default: {
-                  fill: '#D6D6DA',
-                  outline: 'none',
-                },
-                hover: {
-                  fill: '#F53',
-                  outline: 'none',
-                },
-                pressed: {
-                  fill: '#E42',
-                  outline: 'none',
-                },
-              }}
-              />
+        <Geographies geography={geoUrl}>
+          {({ geographies }) => (
+            <>
+              {geographies.map((geo) => (
+                <Geography
+                  key={geo.rsmKey}
+                  stroke="#FFF"
+                  geography={geo}
+                  fill="#DDD"
+                  onClick={() => {
+                    const { name } = geo.properties;
+                    console.log(name);
+                  }}
+                  style={{
+                    default: {
+                      fill: '#D6D6DA',
+                      outline: 'none',
+                    },
+                    hover: {
+                      fill: '#F53',
+                      outline: 'none',
+                    },
+                    pressed: {
+                      fill: '#E42',
+                      outline: 'none',
+                    },
+                  }}
+                />
               ))}
-            {geographies.map((geo) => {
-              const centroid = geoCentroid(geo);
-              const cur = allStates.find((s) => s.val === geo.id);
-              return (
-                <g key={geo.rsmKey + '-name'}>
-                  {cur &&
-                    centroid[0] > -160 &&
-                    centroid[0] < -67 &&
-                    (Object.keys(offsets).indexOf(cur.id) === -1 ? (
-                      <Marker coordinates={centroid}>
-                        <text y="2" fontSize={14} textAnchor="middle">
-                          {cur.id}
-                        </text>
-                      </Marker>
-                    ) : (
-                      <Annotation
-                      subject={centroid}
-                      dx={offsets[cur.id][0]}
-                      dy={offsets[cur.id][1]}>
-                        <text x={4} fontSize={14} alignmentBaseline="middle">
-                          {cur.id}
-                        </text>
-                      </Annotation>
-                    ))}
-                </g>
-              );
-            })}
-          </>
-        )}
-      </Geographies>
-        </ZoomableGroup>
+              {geographies.map((geo) => {
+                const centroid = geoCentroid(geo);
+                const cur = allStates.find((s) => s.val === geo.id);
+                return (
+                  <g key={geo.rsmKey + '-name'}>
+                    {cur &&
+                      centroid[0] > -160 &&
+                      centroid[0] < -67 &&
+                      (Object.keys(offsets).indexOf(cur.id) === -1 ? (
+                        <Marker coordinates={centroid}>
+                          <text y="2" fontSize={14} textAnchor="middle">
+                            {cur.id}
+                          </text>
+                        </Marker>
+                      ) : (
+                        <Annotation
+                          subject={centroid}
+                          dx={offsets[cur.id][0]}
+                          dy={offsets[cur.id][1]}>
+                          <text x={4} fontSize={14} alignmentBaseline="middle">
+                            {cur.id}
+                          </text>
+                        </Annotation>
+                      ))}
+                  </g>
+                );
+              })}
+            </>
+          )}
+        </Geographies>
+      </ZoomableGroup>
     </ComposableMap>
   );
 };
