@@ -23,7 +23,7 @@ const TwitterFeed = ({ screenName }) => {
           screenName
         }}
         options={{
-          height: '900',
+          height: '750',
           width:'700'
         }}
       />
