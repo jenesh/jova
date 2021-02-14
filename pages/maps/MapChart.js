@@ -6,6 +6,7 @@ import {
   Geography,
   Marker,
   Annotation,
+  ZoomableGroup
 } from 'react-simple-maps';
 
 import allStates from './data.json';
@@ -27,35 +28,37 @@ const offsets = {
 const MapChart = () => {
   return (
     <ComposableMap projection="geoAlbersUsa">
+      <ZoomableGroup>
+        
       <Geographies geography={geoUrl}>
         {({ geographies }) => (
           <>
             {geographies.map((geo) => (
               <Geography
-                key={geo.rsmKey}
-                stroke="#FFF"
-                geography={geo}
-                fill="#DDD"
-                onClick={() => {
-                  const { name } = geo.properties;
-                  console.log(name);
-                }}
-                style={{
-                  default: {
-                    fill: '#D6D6DA',
-                    outline: 'none',
-                  },
-                  hover: {
-                    fill: '#F53',
-                    outline: 'none',
-                  },
-                  pressed: {
-                    fill: '#E42',
-                    outline: 'none',
-                  },
-                }}
+              key={geo.rsmKey}
+              stroke="#FFF"
+              geography={geo}
+              fill="#DDD"
+              onClick={() => {
+                const { name } = geo.properties;
+                console.log(name);
+              }}
+              style={{
+                default: {
+                  fill: '#D6D6DA',
+                  outline: 'none',
+                },
+                hover: {
+                  fill: '#F53',
+                  outline: 'none',
+                },
+                pressed: {
+                  fill: '#E42',
+                  outline: 'none',
+                },
+              }}
               />
-            ))}
+              ))}
             {geographies.map((geo) => {
               const centroid = geoCentroid(geo);
               const cur = allStates.find((s) => s.val === geo.id);
@@ -72,9 +75,9 @@ const MapChart = () => {
                       </Marker>
                     ) : (
                       <Annotation
-                        subject={centroid}
-                        dx={offsets[cur.id][0]}
-                        dy={offsets[cur.id][1]}>
+                      subject={centroid}
+                      dx={offsets[cur.id][0]}
+                      dy={offsets[cur.id][1]}>
                         <text x={4} fontSize={14} alignmentBaseline="middle">
                           {cur.id}
                         </text>
@@ -86,6 +89,7 @@ const MapChart = () => {
           </>
         )}
       </Geographies>
+        </ZoomableGroup>
     </ComposableMap>
   );
 };
