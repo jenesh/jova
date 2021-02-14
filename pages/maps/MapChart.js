@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { geoCentroid } from 'd3-geo';
 import {
   ComposableMap,
@@ -25,7 +26,7 @@ const offsets = {
   DC: [49, 21],
 };
 
-const MapChart = ({ setStateName }) => {
+const MapChart = () => {
   return (
     <ComposableMap projection="geoAlbersUsa">
       <ZoomableGroup>
@@ -40,7 +41,7 @@ const MapChart = ({ setStateName }) => {
                   fill="#DDD"
                   onClick={() => {
                     const { name } = geo.properties;
-                    setStateName(name);
+                    window.location.assign(`state/${name}`);
                   }}
                   style={{
                     default: {
