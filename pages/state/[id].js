@@ -1,19 +1,20 @@
 import React from 'react';
 export async function getServerSideProps(context) {
-  const { state } = context.params;
+  const { id } = context.params;
+
   return {
     props: {
-      state,
+      id,
     },
   };
 }
 
-const State = ({ state }) => {
-  if (!state) return <h1>Loading...</h1>;
+const State = ({ id }) => {
+  if (!id) return <h1>Loading...</h1>;
 
   return (
     <div>
-      <h1>{state}</h1>
+      <h1>{id}</h1>
     </div>
   );
 };

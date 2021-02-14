@@ -39,8 +39,8 @@ const MapChart = () => {
                   geography={geo}
                   fill="#DDD"
                   onClick={() => {
-                    const { name } = geo.properties;
-                    window.location.assign(`state/${name}`);
+                    const curState = allStates.find((s) => s.val === geo.id);
+                    window.location.assign(`state/${curState.id}`);
                   }}
                   style={{
                     default: {
