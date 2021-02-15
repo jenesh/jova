@@ -6,7 +6,6 @@ export async function getAllSenateMembers() {
 
   const response = await fetch(url, headers);
   const { results } = await response.json();
-  // console.log(data);
 
   return {
     results,
