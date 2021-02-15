@@ -1,11 +1,6 @@
 import React from 'react';
-// const Search = () => {
-//   return (
-//     <h1>SEARCH PAGE</h1>
-//   )
-// }
+import * as member from '../api/propublica/member';
 
-// export default Search;
 export async function getStaticProps() {
   const url = `https://dog.ceo/api/breeds/image/random`;
   const response = await fetch(url);
@@ -20,12 +15,17 @@ export async function getStaticProps() {
 const Search = ({ data }) => {
   // const data = fetchData();
   // console.log(data)
+  const handleClick = async () => {
+    const data = await member.getAllSenateMembers();
+    console.log(data);
+  }
 
   if (!data) return <h1>Loading...</h1>;
 
   return (
     <div>
       <h1>SEARCH ID PAGE</h1>
+      <button onClick={handleClick}>GET ALL</button>
       {/* <p>{data}</p> */}
     </div>
   );

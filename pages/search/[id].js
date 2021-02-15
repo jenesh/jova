@@ -1,4 +1,5 @@
 import React from 'react';
+
 export async function getServerSideProps(context) {
   console.log(context);
   const url = `https://dog.ceo/api/breeds/image/random`;
