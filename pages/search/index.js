@@ -1,31 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as member from '../api/propublica/member';
 
-export async function getStaticProps() {
-  const url = `https://dog.ceo/api/breeds/image/random`;
-  const response = await fetch(url);
-  const data = await response.json();
-  return {
-    props: {
-      data,
-    },
+const Search = () => {
+  const [data, setData] = useState();
+
+  const handleClick = () => {
+    const response = member.getAllSenateMembers();
+
+    response.then(({ results }) => setData(results[0].members));
   };
-}
-
-const Search = ({ data }) => {
-  // const data = fetchData();
-  // console.log(data)
-  const handleClick = async () => {
-    const data = await member.getAllSenateMembers();
-    console.log(data);
-  }
-
-  if (!data) return <h1>Loading...</h1>;
 
   return (
     <div>
       <h1>SEARCH ID PAGE</h1>
       <button onClick={handleClick}>GET ALL</button>
+      <div>
+        {data ? (
+          <div>
+            {data.map((el) => {
+              return (
+                <div key={el.id}>
+                  <p>
+                    {el.first_name} {el.last_name}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        ) : null}
+      </div>
       {/* <p>{data}</p> */}
     </div>
   );
