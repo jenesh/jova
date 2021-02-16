@@ -1,35 +1,79 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as member from '../api/propublica/member';
+import CongressPerson from '../../components/CongressPerson';
+import SearchForm from '../../components/SearchForm';
 
 const Search = () => {
-  const [data, setData] = useState();
+  const [senateData, setSenateData] = useState();
+  const [houseData, setHouseData] = useState();
+  const [searchInput, setSearchInput] = useState();
+  const [backButton, setBackButton] = useState();
 
-  const handleClick = () => {
-    const response = member.getAllSenateMembers();
+  const loadCongressMembers = () => {
+    const senate = member.getAllSenateMembers();
+    const house = member.getAllHouseMembers();
 
-    response.then(({ results }) => setData(results[0].members));
+    senate.then(({ results }) => setSenateData(results[0].members));
+    house.then(({ results }) => setHouseData(results[0].members));
+  };
+
+  useEffect(() => {
+    loadCongressMembers();
+  }, []);
+
+  const filterHelper = (el) =>
+    el.state.toLowerCase() === searchInput.toLowerCase();
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    if (senateData && houseData) {
+      const filteredReps = houseData.filter(filterHelper);
+      const filteredSenate = senateData.filter(filterHelper);
+      setHouseData(filteredReps);
+      setSenateData(filteredSenate);
+      setBackButton(true);
+    }
+  };
+
+  const handleBackClick = () => {
+    loadCongressMembers();
+    setBackButton(false);
   };
 
   return (
     <div>
-      <h1>SEARCH ID PAGE</h1>
-      <button onClick={handleClick}>GET ALL</button>
-      <div>
-        {data ? (
-          <div>
-            {data.map((el) => {
-              return (
-                <div key={el.id}>
-                  <p>
-                    {el.first_name} {el.last_name}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        ) : null}
+      <h1>Congress</h1>
+      <SearchForm
+        handleFormSubmit={handleFormSubmit}
+        setSearchInput={setSearchInput}
+        backButton={backButton}
+        handleBackClick={handleBackClick}
+      />
+      <div
+        style={{
+          display: 'flex',
+        }}>
+        <div>
+          <h1>Senate</h1>
+          {senateData ? (
+            <div>
+              {senateData.map((el) => {
+                return <CongressPerson key={el.id} data={el} />;
+              })}
+            </div>
+          ) : null}
+        </div>
+        <div>
+          <h1>House</h1>
+          {houseData ? (
+            <div>
+              {houseData.map((el) => {
+                return <CongressPerson key={el.id} data={el} />;
+              })}
+            </div>
+          ) : null}
+        </div>
       </div>
-      {/* <p>{data}</p> */}
     </div>
   );
 };
