@@ -25,6 +25,12 @@ const offsets = {
   DC: [49, 21],
 };
 
+const handleEvent =(geo)=>{
+  const curState = allStates.find((s) => s.val === geo.id);
+  window.location.assign(`state/${curState.id}`);
+};
+
+
 const MapChart = () => {
   return (
     <ComposableMap projection="geoAlbersUsa">
@@ -37,11 +43,7 @@ const MapChart = () => {
                   key={geo.rsmKey}
                   stroke="#FFF"
                   geography={geo}
-                  fill="#DDD"
-                  onClick={() => {
-                    const curState = allStates.find((s) => s.val === geo.id);
-                    window.location.assign(`state/${curState.id}`);
-                  }}
+                  fill="#DDD"            onClick={()=>handleEvent(geo)}
                   style={{
                     default: {
                       fill: '#D6D6DA',
