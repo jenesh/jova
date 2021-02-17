@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import headers from '../propublica/headers.js'
+import {headers} from '../propublica/headers.js'
 
 
 export async function getAllSenateMembers() {
