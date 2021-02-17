@@ -56,7 +56,7 @@ const MapChart = () => {
                       outline: 'none',
                     },
                     hover: {
-                      fill: '#c5c5c5',
+                      fill: handleStateParty(geo),
                       outline: 'none',
                       cursor: 'pointer',
                     },
