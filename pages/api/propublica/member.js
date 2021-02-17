@@ -61,7 +61,6 @@ export async function getVotingPositions(memberId){
 
     const response = await fetch(url, headers);
     const {results} = await response.json()
-
     return {
         results
     };
