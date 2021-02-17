@@ -27,7 +27,13 @@ const offsets = {
 
 const handleEvent = (geo) => {
   const curState = allStates.find((s) => s.val === geo.id);
-  window.location.assign(`state/${curState.id}`);
+  window.location.assign(`state/${curState.abreviation}`);
+};
+
+const handleStateParty = (geo) => {
+  const curState = allStates.find((s) => s.val === geo.id);
+
+  return curState.party === 'D' ? 'blue' : ' red';
 };
 
 const MapChart = () => {
@@ -46,7 +52,7 @@ const MapChart = () => {
                   onClick={() => handleEvent(geo)}
                   style={{
                     default: {
-                      fill: '#D6D6DA',
+                      fill: handleStateParty(geo),
                       outline: 'none',
                     },
                     hover: {
@@ -68,27 +74,27 @@ const MapChart = () => {
                     {cur &&
                       centroid[0] > -160 &&
                       centroid[0] < -67 &&
-                      (Object.keys(offsets).indexOf(cur.id) === -1 ? (
+                      (Object.keys(offsets).indexOf(cur.abreviation) === -1 ? (
                         <Marker coordinates={centroid}>
                           <text
                             y="2"
                             fontSize={14}
                             textAnchor="middle"
                             onClick={() => handleEvent(geo)}>
-                            {cur.id}
+                            {cur.abreviation}
                           </text>
                         </Marker>
                       ) : (
                         <Annotation
                           subject={centroid}
-                          dx={offsets[cur.id][0]}
-                          dy={offsets[cur.id][1]}>
+                          dx={offsets[cur.abreviation][0]}
+                          dy={offsets[cur.abreviation][1]}>
                           <text
                             x={4}
                             fontSize={14}
                             alignmentBaseline="middle"
                             onClick={() => handleEvent(geo)}>
-                            {cur.id}
+                            {cur.abreviation}
                           </text>
                         </Annotation>
                       ))}

@@ -1,62 +1,362 @@
 [
-  { "id": "AL", "val": "01" },
-  { "id": "AK", "val": "02" },
-  { "id": "AS", "val": "60" },
-  { "id": "AZ", "val": "04" },
-  { "id": "AR", "val": "05" },
-  { "id": "CA", "val": "06" },
-  { "id": "CO", "val": "08" },
-  { "id": "CT", "val": "09" },
-  { "id": "DE", "val": "10" },
-  { "id": "DC", "val": "11" },
-  { "id": "FL", "val": "12" },
-  { "id": "FM", "val": "64" },
-  { "id": "GA", "val": "13" },
-  { "id": "GU", "val": "66" },
-  { "id": "HI", "val": "15" },
-  { "id": "ID", "val": "16" },
-  { "id": "IL", "val": "17" },
-  { "id": "IN", "val": "18" },
-  { "id": "IA", "val": "19" },
-  { "id": "KS", "val": "20" },
-  { "id": "KY", "val": "21" },
-  { "id": "LA", "val": "22" },
-  { "id": "ME", "val": "23" },
-  { "id": "MH", "val": "68" },
-  { "id": "MD", "val": "24" },
-  { "id": "MA", "val": "25" },
-  { "id": "MI", "val": "26" },
-  { "id": "MN", "val": "27" },
-  { "id": "MS", "val": "28" },
-  { "id": "MO", "val": "29" },
-  { "id": "MT", "val": "30" },
-  { "id": "NE", "val": "31" },
-  { "id": "NV", "val": "32" },
-  { "id": "NH", "val": "33" },
-  { "id": "NJ", "val": "34" },
-  { "id": "NM", "val": "35" },
-  { "id": "NY", "val": "36" },
-  { "id": "NC", "val": "37" },
-  { "id": "ND", "val": "38" },
-  { "id": "MP", "val": "69" },
-  { "id": "OH", "val": "39" },
-  { "id": "OK", "val": "40" },
-  { "id": "OR", "val": "41" },
-  { "id": "PW", "val": "70" },
-  { "id": "PA", "val": "42" },
-  { "id": "PR", "val": "72" },
-  { "id": "RI", "val": "44" },
-  { "id": "SC", "val": "45" },
-  { "id": "SD", "val": "46" },
-  { "id": "TN", "val": "47" },
-  { "id": "TX", "val": "48" },
-  { "id": "UM", "val": "74" },
-  { "id": "UT", "val": "49" },
-  { "id": "VT", "val": "50" },
-  { "id": "VA", "val": "51" },
-  { "id": "VI", "val": "78" },
-  { "id": "WA", "val": "53" },
-  { "id": "WV", "val": "54" },
-  { "id": "WI", "val": "55" },
-  { "id": "WY", "val": "56" }
+  { 
+    "abreviation":"AL",
+    "val": "01",
+    "name":"Alabama",
+    "party":"D"
+  },
+  { 
+    "abreviation":"AK",
+    "val": "02",
+    "name":"Alaska",
+    "party":"R"
+  },
+  { 
+    "abreviation":"AS",
+    "val": "60",
+    "name":"American Samoa",
+    "party":""
+  },
+  { 
+    "abreviation":"AZ",
+    "val": "04",
+    "name":"Arizona",
+    "party":"D"
+  },
+  { 
+    "abreviation":"AR",
+    "val": "05",
+    "name":"Arkansas",
+    "party":""
+  },
+  { 
+    "abreviation":"CA",
+    "val": "06",
+    "name":"California",
+    "party":"D"
+  },
+  { 
+    "abreviation":"CO",
+    "val": "08",
+    "name":"Colorado",
+    "party":"D"
+  },
+  { 
+    "abreviation":"CT",
+    "val": "09",
+    "name":"Connecticut",
+    "party":"D"
+  },
+  { 
+    "abreviation":"DE",
+    "val": "10",
+    "name":"Delaware",
+    "party":"D"
+  },
+  { 
+    "abreviation":"DC",
+    "val": "11",
+    "name":"District of Coloumbia",
+    "party":""
+  },
+  { 
+    "abreviation":"FL",
+    "val": "12",
+    "name":"Florida",
+    "party":""
+  },
+  { 
+    "abreviation":"FM",
+    "val": "64",
+    "name":"",
+    "party":""
+  },
+  { 
+    "abreviation":"GA",
+    "val": "13",
+    "name":"Georgia",
+    "party":"D"
+  },
+  { 
+    "abreviation":"GU",
+    "val": "66",
+    "name":"Guam",
+    "party":""
+  },
+  { 
+    "abreviation":"HI",
+    "val": "15",
+    "name":"Hawaii",
+    "party":"D"
+  },
+  { 
+    "abreviation":"ID",
+    "val": "16",
+    "name":"Idaho",
+    "party":""
+  },
+  { 
+    "abreviation":"IL",
+    "val": "17",
+    "name":"Illonois",
+    "party":"D"
+  },
+  { 
+    "abreviation":"IN",
+    "val": "18",
+    "name":"Indiana",
+    "party":""
+  },
+  { 
+    "abreviation":"IA",
+    "val": "19",
+    "name":"Iowa",
+    "party":""
+  },
+  { 
+    "abreviation":"KS",
+    "val": "20",
+    "name":"Kansas",
+    "party":""
+  },
+  { 
+    "abreviation":"KY",
+    "val": "21",
+    "name":"Kentucky",
+    "party":""
+  },
+  { 
+    "abreviation":"LA",
+    "val": "22",
+    "name":"Louisiana",
+    "party":""
+  },
+  { 
+    "abreviation":"ME",
+    "val": "23",
+    "name":"Maine",
+    "party":"D"
+  },
+  { 
+    "abreviation":"MH",
+    "val": "68",
+    "name":"",
+    "party":""
+  },
+  { 
+    "abreviation":"MD",
+    "val": "24",
+    "name":"Maryland",
+    "party":"D"
+  },
+  { 
+    "abreviation":"MA",
+    "val": "25",
+    "name":"Massachusetts",
+    "party":"D"
+  },
+  { 
+    "abreviation":"MI",
+    "val": "26",
+    "name":"Michigan",
+    "party":"D"
+  },
+  { 
+    "abreviation":"MN",
+    "val": "27",
+    "name":"Minnesota",
+    "party":"D"
+  },
+  { 
+    "abreviation":"MS",
+    "val": "28",
+    "name":"Mississippi",
+    "party":""
+  },
+  { 
+    "abreviation":"MO",
+    "val": "29",
+    "name":"Missouri",
+    "party":""
+  },
+  { 
+    "abreviation":"MT",
+    "val": "30",
+    "name":"Montana",
+    "party":""
+  },
+  { 
+    "abreviation":"NE",
+    "val": "31",
+    "name":"Nebraska",
+    "party":""
+  },
+  { 
+    "abreviation":"NV",
+    "val": "32",
+    "name":"Nevada",
+    "party":"D"
+  },
+  { 
+    "abreviation":"NH",
+    "val": "33",
+    "name":"New Hampshire",
+    "party":"D"
+  },
+  { 
+    "abreviation":"NJ",
+    "val": "34",
+    "name":"New Jersey",
+    "party":"D"
+  },
+  { 
+    "abreviation":"NM",
+    "val": "35",
+    "name":"New Mexico",
+    "party":"D"
+  },
+  { 
+    "abreviation":"NY",
+    "val": "36",
+    "name":"new York",
+    "party":"D"
+  },
+  { 
+    "abreviation":"NC",
+    "val": "37",
+    "name":"North Carolina",
+    "party":""
+  },
+  { 
+    "abreviation":"ND",
+    "val": "38",
+    "name":"North Dakota",
+    "party":""
+  },
+  { 
+    "abreviation":"MP",
+    "val": "69",
+    "name":"",
+    "party":""
+  },
+  { 
+    "abreviation":"OH",
+    "val": "39",
+    "name":"Ohio",
+    "party":""
+  },
+  { 
+    "abreviation":"OK",
+    "val": "40",
+    "name":"Oklohoma",
+    "party":""
+  },
+  { 
+    "abreviation":"OR",
+    "val": "41",
+    "name":"Oregon",
+    "party":"D"
+  },
+  { 
+    "abreviation":"PW",
+    "val": "70",
+    "name":"",
+    "party":""
+  },
+  { 
+    "abreviation":"PA",
+    "val": "42",
+    "name":"Pennsylvania",
+    "party":"D"
+  },
+  { 
+    "abreviation":"PR",
+    "val": "72",
+    "name":"",
+    "party":""
+  },
+  { 
+    "abreviation":"RI",
+    "val": "44",
+    "name":"Rhode Island",
+    "party":"D"
+  },
+  { 
+    "abreviation":"SC",
+    "val": "45",
+    "name":"South Carolina",
+    "party":""
+  },
+  { 
+    "abreviation":"SD",
+    "val": "46",
+    "name":"South Dakota",
+    "party":""
+  },
+  { 
+    "abreviation":"TN",
+    "val": "47",
+    "name":"Tennesse",
+    "party":""
+  },
+  { 
+    "abreviation":"TX",
+    "val": "48",
+    "name":"Texas",
+    "party":""
+  },
+  { 
+    "abreviation":"UM",
+    "val": "74",
+    "name":"",
+    "party":""
+  },
+  { 
+    "abreviation":"UT",
+    "val": "49",
+    "name":"Utah",
+    "party":""
+  },
+  { 
+    "abreviation":"VT",
+    "val": "50",
+    "name":"Vermont",
+    "party":"D"
+  },
+  { 
+    "abreviation":"VA",
+    "val": "51",
+    "name":"Virginia",
+    "party":"D"
+  },
+  { 
+    "abreviation":"VI",
+    "val": "78",
+    "name":"",
+    "party":""
+  },
+  { 
+    "abreviation":"WA",
+    "val": "53",
+    "name":"washington",
+    "party":"D"
+  },
+  { 
+    "abreviation":"WV",
+    "val": "54",
+    "name":"West virgnia",
+    "party":""
+  },
+  { 
+    "abreviation":"WI",
+    "val": "55",
+    "name":"Wisconsin",
+    "party":"D"
+  },
+  { 
+    "abreviation":"WY",
+    "val": "56",
+    "name":"Wyoming",
+    "party":""
+  }
 ]
