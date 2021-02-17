@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'  
+import BasicInfo from '../../components/Profile/BasicInfo'
 import VotingPosition from '../../components/Profile/VotingPosition.js'
 import * as member from '../api/propublica/member'
 
@@ -15,23 +16,31 @@ export async function getServerSideProps(context){
 }
 
 const Profile = ({ id }) => {
-    const [votingPositions, setVotingPositions] = useState()
+    const [votingPositions, setVotingPositions] = useState([])
+    const [memberInfo, setMemberInfo] = useState()
 
-    useEffect( async () => {
-        console.log( member.getVotingPositions('K000388'))
-        const votingPositions = member.getVotingPositions('K00038')
-        votingPositions.then(({ results }) => setVotingPositions(results[0].votes));
+    useEffect(() => {
+        const memberInformation = member.getMemberById(id)
+        const votingPos = member.getVotingPositions(id)
+        votingPos.then(({results}) => setVotingPositions(results[0].votes));
+        memberInformation.then(({results}) => setMemberInfo(results[0]))
     }, [])
 
+    const renderBasicInfo = () => {
+        if(memberInfo){
+            return <BasicInfo data={memberInfo}/>
+        }else{
+            return <div></div>
+        }
+    }
     if(!id) return <h1> Loading...</h1>
 
     return(
         <div>
-            <h1>Profile</h1>
-            
+            {renderBasicInfo()}
             {votingPositions
                ? votingPositions.map((elem) => {
-                   return <VotingPosition key={elem.id} data={elem}/>
+                   return <VotingPosition key={elem.time} data={elem}/>
                }) 
             : null}
         </div>

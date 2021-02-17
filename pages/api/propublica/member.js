@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { headers } from './headers';
+import {headers} from './headers';
 
 export async function getAllSenateMembers() {
   const url = `https://api.propublica.org/congress/v1/117/senate/members.json`;
@@ -28,7 +28,6 @@ export async function getMemberById(memberId) {
 
   const response = await fetch(url, headers);
   const { results } = await response.json();
-
   return {
     results,
   };
@@ -60,7 +59,7 @@ export async function getVotingPositions(memberId) {
   const url = `https://api.propublica.org/congress/v1/members/${memberId}/votes.json`;
 
   const response = await fetch(url, headers);
-  const { results } = await response.json();
+  const {results} = await response.json();
 
   return {
     results,
@@ -72,6 +71,7 @@ const Member = ({ data }) => {
     // getAllSenateMembers()
     // getAllHouseMembers()
     // getMemberById('O000172')
+    // getVotingPositions('B001230')
   });
 
   return (

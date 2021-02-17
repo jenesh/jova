@@ -7,15 +7,19 @@ const CongressPerson = ({ data }) => {
     <div>
       {data.party === 'D' ? (
         <div className="border-blue-500 border-4">
-          <p>
-            {data.first_name} {data.last_name} {data.state}
-          </p>
+          <Link href={`/profile/${data.id}`}>
+            <p>
+              {data.first_name} {data.last_name} {data.state}
+            </p>
+          </Link>
         </div>
       ) : (
         <div className="border-red-800 border-4">
-          <p>
-            {data.first_name} {data.last_name} {data.state}
-          </p>
+          <Link href={`/profile/${data.id}`}>
+            <p>
+              {data.first_name} {data.last_name} {data.state}
+            </p>
+          </Link>
         </div>
       )}
     </div>
