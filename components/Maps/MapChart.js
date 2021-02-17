@@ -36,6 +36,12 @@ const handleStateParty = (geo) => {
   return curState.party === 'D' ? '#499DF5' : '#fd3428';
 };
 
+const handleHover = (geo) => {
+  const curState = allStates.find((s) => s.val === geo.id);
+
+  return curState.party === 'D' ? '#2E37FE' : '#f00f02';
+};
+
 const MapChart = () => {
   return (
     <ComposableMap projection="geoAlbersUsa">
@@ -56,7 +62,7 @@ const MapChart = () => {
                       outline: 'none',
                     },
                     hover: {
-                      fill: handleStateParty(geo),
+                      fill: handleHover(geo),
                       outline: 'none',
                       cursor: 'pointer',
                     },
