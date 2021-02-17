@@ -25,6 +25,23 @@ const offsets = {
   DC: [49, 21],
 };
 
+const handleEvent = (geo) => {
+  const curState = allStates.find((s) => s.val === geo.id);
+  window.location.assign(`state/${curState.abreviation}`);
+};
+
+const handleStateParty = (geo) => {
+  const curState = allStates.find((s) => s.val === geo.id);
+
+  return curState.party === 'D' ? '#499DF5' : '#fd3428';
+};
+
+const handleHover = (geo) => {
+  const curState = allStates.find((s) => s.val === geo.id);
+
+  return curState.party === 'D' ? '#2E37FE' : '#f00f02';
+};
+
 const MapChart = () => {
   return (
     <ComposableMap projection="geoAlbersUsa">
@@ -38,18 +55,16 @@ const MapChart = () => {
                   stroke="#FFF"
                   geography={geo}
                   fill="#DDD"
-                  onClick={() => {
-                    const curState = allStates.find((s) => s.val === geo.id);
-                    window.location.assign(`state/${curState.id}`);
-                  }}
+                  onClick={() => handleEvent(geo)}
                   style={{
                     default: {
-                      fill: '#D6D6DA',
+                      fill: handleStateParty(geo),
                       outline: 'none',
                     },
                     hover: {
-                      fill: '#F53',
+                      fill: handleHover(geo),
                       outline: 'none',
+                      cursor: 'pointer',
                     },
                     pressed: {
                       fill: '#E42',
@@ -66,19 +81,29 @@ const MapChart = () => {
                     {cur &&
                       centroid[0] > -160 &&
                       centroid[0] < -67 &&
-                      (Object.keys(offsets).indexOf(cur.id) === -1 ? (
+                      (Object.keys(offsets).indexOf(cur.abreviation) === -1 ? (
                         <Marker coordinates={centroid}>
-                          <text y="2" fontSize={14} textAnchor="middle">
-                            {cur.id}
+                          <text
+                            y="2"
+                            fontSize={14}
+                            textAnchor="middle"
+                            onClick={() => handleEvent(geo)}
+                            style={{ cursor: 'pointer' }}>
+                            {cur.abreviation}
                           </text>
                         </Marker>
                       ) : (
                         <Annotation
                           subject={centroid}
-                          dx={offsets[cur.id][0]}
-                          dy={offsets[cur.id][1]}>
-                          <text x={4} fontSize={14} alignmentBaseline="middle">
-                            {cur.id}
+                          dx={offsets[cur.abreviation][0]}
+                          dy={offsets[cur.abreviation][1]}>
+                          <text
+                            x={4}
+                            fontSize={14}
+                            alignmentBaseline="middle"
+                            onClick={() => handleEvent(geo)}
+                            style={{ cursor: 'pointer' }}>
+                            {cur.abreviation}
                           </text>
                         </Annotation>
                       ))}

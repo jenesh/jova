@@ -4,33 +4,30 @@ import CongressPerson from '../../components/CongressPerson';
 import SearchForm from '../../components/SearchForm';
 import NavBar from '../../components/NavBar/NavBar';
 
-const Search = () => {
+const SearchSenate = () => {
   const [senateData, setSenateData] = useState();
-  const [houseData, setHouseData] = useState();
   const [searchInput, setSearchInput] = useState();
   const [backButton, setBackButton] = useState();
 
   const loadCongressMembers = () => {
     const senate = member.getAllSenateMembers();
-    const house = member.getAllHouseMembers();
 
     senate.then(({ results }) => setSenateData(results[0].members));
-    house.then(({ results }) => setHouseData(results[0].members));
   };
 
   useEffect(() => {
     loadCongressMembers();
   }, []);
 
+  console.log('senate info', senateData);
+
   const filterHelper = (el) =>
     el.state.toLowerCase() === searchInput.toLowerCase();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (senateData && houseData) {
-      const filteredReps = houseData.filter(filterHelper);
+    if (senateData) {
       const filteredSenate = senateData.filter(filterHelper);
-      setHouseData(filteredReps);
       setSenateData(filteredSenate);
       setBackButton(true);
     }
@@ -43,7 +40,7 @@ const Search = () => {
 
   return (
     <div>
-      <NavBar />
+      <NavBar/>
       <h1>Congress</h1>
       <SearchForm
         handleFormSubmit={handleFormSubmit}
@@ -65,19 +62,9 @@ const Search = () => {
             </div>
           ) : null}
         </div>
-        <div>
-          <h1>House</h1>
-          {houseData ? (
-            <div>
-              {houseData.map((el) => {
-                return <CongressPerson key={el.id} data={el} />;
-              })}
-            </div>
-          ) : null}
-        </div>
       </div>
     </div>
   );
 };
 
-export default Search;
+export default SearchSenate;

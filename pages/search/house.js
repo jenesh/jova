@@ -2,19 +2,16 @@ import React, { useEffect, useState } from 'react';
 import * as member from '../api/propublica/member';
 import CongressPerson from '../../components/CongressPerson';
 import SearchForm from '../../components/SearchForm';
-import NavBar from '../../components/NavBar/NavBar';
+import NavBar from '../../components/NavBar/NavBar'
 
-const Search = () => {
-  const [senateData, setSenateData] = useState();
+const SearchHouse = () => {
   const [houseData, setHouseData] = useState();
   const [searchInput, setSearchInput] = useState();
   const [backButton, setBackButton] = useState();
 
   const loadCongressMembers = () => {
-    const senate = member.getAllSenateMembers();
     const house = member.getAllHouseMembers();
 
-    senate.then(({ results }) => setSenateData(results[0].members));
     house.then(({ results }) => setHouseData(results[0].members));
   };
 
@@ -27,11 +24,10 @@ const Search = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (senateData && houseData) {
+    if (houseData) {
       const filteredReps = houseData.filter(filterHelper);
       const filteredSenate = senateData.filter(filterHelper);
       setHouseData(filteredReps);
-      setSenateData(filteredSenate);
       setBackButton(true);
     }
   };
@@ -43,7 +39,7 @@ const Search = () => {
 
   return (
     <div>
-      <NavBar />
+      <NavBar/>
       <h1>Congress</h1>
       <SearchForm
         handleFormSubmit={handleFormSubmit}
@@ -55,16 +51,6 @@ const Search = () => {
         style={{
           display: 'flex',
         }}>
-        <div>
-          <h1>Senate</h1>
-          {senateData ? (
-            <div>
-              {senateData.map((el) => {
-                return <CongressPerson key={el.id} data={el} />;
-              })}
-            </div>
-          ) : null}
-        </div>
         <div>
           <h1>House</h1>
           {houseData ? (
@@ -80,4 +66,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchHouse;
