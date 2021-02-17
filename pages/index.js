@@ -11,14 +11,9 @@ export default function Home() {
       <div className="">
         <div className="flex  justify-center">
           <NavBar />
-          <div
-            style={{
-              width: '800px',
-            }}>
-            <MapChart />
-          </div>
         </div>
       </div>
+      <MapChart />
     </div>
   );
 }

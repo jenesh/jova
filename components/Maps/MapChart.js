@@ -56,7 +56,7 @@ const MapChart = () => {
                       outline: 'none',
                     },
                     hover: {
-                      fill: 'grey',
+                      fill: '#c5c5c5',
                       outline: 'none',
                       cursor: 'pointer',
                     },
