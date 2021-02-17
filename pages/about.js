@@ -1,8 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
+import NavBar from '../components/NavBar/NavBar';
 export default function About() {
   return (
     <div>
+      <NavBar />
       <h1> About page! </h1>
       <h2> Mission Statement:</h2>
       <p>
