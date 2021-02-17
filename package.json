@@ -38,6 +38,7 @@
     "eslint-plugin-react": "^7.22.0",
     "husky": "^5.0.9",
     "lint-staged": "^10.5.4",
+    "postcss-preset-env": "^6.7.0",
     "prettier": "^2.2.1",
     "react-simple-maps": "^2.3.0",
     "react-twitter-widgets": "^1.9.5",

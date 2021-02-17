@@ -1,26 +1,30 @@
-import React from "react";
-import Link from 'next/link'
+import React from 'react';
+import Link from 'next/link';
 
 export default function NavBar() {
   return (
-    <div>
-        <div>
-      <ul>
-      <Link href="/">
-        <a>Home</a>
-      </Link>
-      <Link href="/">
-        <a>Find Representatives</a>
-      </Link>
-      <Link href="/search/senate">
-        <a>Find Senators</a>
-      </Link>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-      </ul>
+    <div className="w-full">
+      <div className="flex justify-center text-6xl">
+        <Link href="/">
+          <a>
+            <h1 className="text-yellow-200">JOVA</h1>
+          </a>
+        </Link>
       </div>
+      <ul className=" flex justify-between pt-8 text-2xl">
+        <Link href="/">
+          <a>Home</a>
+        </Link>
+        <Link href="/search/house">
+          <a>Find Representatives</a>
+        </Link>
+        <Link href="/search/senate">
+          <a>Find Senators</a>
+        </Link>
+        <Link href="/about">
+          <a>About</a>
+        </Link>
+      </ul>
     </div>
   );
 }
-
