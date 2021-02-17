@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as member from '../api/propublica/member';
-import Link from 'next/link';
+import CongressPerson from '../../components/CongressPerson';
 
 export async function getServerSideProps(context) {
   const { id } = context.params;
@@ -14,11 +14,19 @@ export async function getServerSideProps(context) {
 
 const State = ({ id }) => {
   const [senators, setSenators] = useState();
+  const [representative, setRepresentatives] = useState();
+
+  const setRepDataByState = (res) => {
+    const t = res.filter((el) => el.state === id);
+    setRepresentatives(t);
+  };
 
   useEffect(() => {
     const senate = member.getSenateMemberByState(id);
+    const house = member.getAllHouseMembers();
 
     senate.then(({ results }) => setSenators(results));
+    house.then(({ results }) => setRepDataByState(results[0].members));
   }, []);
 
   if (!id) return <h1>Loading...</h1>;
@@ -27,15 +35,22 @@ const State = ({ id }) => {
     <div>
       <h1>{id}</h1>
       <div>
-        {senators
-          ? senators.map((el) => {
-              return (
-                <div key={el.id}>
-                  <p>{el.name}</p>
-                </div>
-              );
-            })
-          : null}
+        <div>
+          <h1>Senators</h1>
+          {senators
+            ? senators.map((el) => {
+                return <CongressPerson key={el.id} data={el} />;
+              })
+            : null}
+        </div>
+        <div>
+          <h1>Representatives</h1>
+          {representative
+            ? representative.map((el) => {
+                return <CongressPerson key={el.id} data={el} />;
+              })
+            : null}
+        </div>
       </div>
     </div>
   );
