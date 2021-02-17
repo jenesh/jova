@@ -33,7 +33,7 @@ const handleEvent = (geo) => {
 const handleStateParty = (geo) => {
   const curState = allStates.find((s) => s.val === geo.id);
 
-  return curState.party === 'D' ? 'blue' : ' red';
+  return curState.party === 'D' ? '#499DF5' : '#fd3428';
 };
 
 const MapChart = () => {
@@ -56,8 +56,9 @@ const MapChart = () => {
                       outline: 'none',
                     },
                     hover: {
-                      fill: '#F53',
+                      fill: 'grey',
                       outline: 'none',
+                      cursor: 'pointer',
                     },
                     pressed: {
                       fill: '#E42',
@@ -80,7 +81,8 @@ const MapChart = () => {
                             y="2"
                             fontSize={14}
                             textAnchor="middle"
-                            onClick={() => handleEvent(geo)}>
+                            onClick={() => handleEvent(geo)}
+                            style={{ cursor: 'pointer' }}>
                             {cur.abreviation}
                           </text>
                         </Marker>
@@ -93,7 +95,8 @@ const MapChart = () => {
                             x={4}
                             fontSize={14}
                             alignmentBaseline="middle"
-                            onClick={() => handleEvent(geo)}>
+                            onClick={() => handleEvent(geo)}
+                            style={{ cursor: 'pointer' }}>
                             {cur.abreviation}
                           </text>
                         </Annotation>
