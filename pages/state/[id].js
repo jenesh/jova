@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as member from '../api/propublica/member';
 import CongressPerson from '../../components/CongressPerson';
+import NavBar from '../../components/NavBar/NavBar';
 
 export async function getServerSideProps(context) {
   const { id } = context.params;
@@ -33,6 +34,9 @@ const State = ({ id }) => {
 
   return (
     <div>
+      <div className="flex  justify-center">
+        <NavBar />
+      </div>
       <h1>{id}</h1>
       <div>
         <div>
