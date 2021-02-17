@@ -9,7 +9,6 @@ export default function Home() {
   return (
     <div>
       <div className="">
-
         <div className="flex  justify-center">
           <NavBar />
         </div>

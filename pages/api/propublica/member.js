@@ -60,7 +60,7 @@ export async function getVotingPositions(memberId) {
   const url = `https://api.propublica.org/congress/v1/members/${memberId}/votes.json`;
 
   const response = await fetch(url, headers);
-  const { results } = await response.json()
+  const { results } = await response.json();
 
   return {
     results,
