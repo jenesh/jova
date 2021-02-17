@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import headers from './headers';
+import {headers} from './headers';
 
 export async function getAllSenateMembers() {
   const url = `https://api.propublica.org/congress/v1/117/senate/members.json`;
