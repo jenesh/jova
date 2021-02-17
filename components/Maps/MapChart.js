@@ -25,11 +25,10 @@ const offsets = {
   DC: [49, 21],
 };
 
-const handleEvent =(geo)=>{
+const handleEvent = (geo) => {
   const curState = allStates.find((s) => s.val === geo.id);
   window.location.assign(`state/${curState.id}`);
 };
-
 
 const MapChart = () => {
   return (
@@ -43,7 +42,8 @@ const MapChart = () => {
                   key={geo.rsmKey}
                   stroke="#FFF"
                   geography={geo}
-                  fill="#DDD"            onClick={()=>handleEvent(geo)}
+                  fill="#DDD"
+                  onClick={() => handleEvent(geo)}
                   style={{
                     default: {
                       fill: '#D6D6DA',
@@ -70,7 +70,11 @@ const MapChart = () => {
                       centroid[0] < -67 &&
                       (Object.keys(offsets).indexOf(cur.id) === -1 ? (
                         <Marker coordinates={centroid}>
-                          <text y="2" fontSize={14} textAnchor="middle">
+                          <text
+                            y="2"
+                            fontSize={14}
+                            textAnchor="middle"
+                            onClick={() => handleEvent(geo)}>
                             {cur.id}
                           </text>
                         </Marker>
@@ -79,7 +83,11 @@ const MapChart = () => {
                           subject={centroid}
                           dx={offsets[cur.id][0]}
                           dy={offsets[cur.id][1]}>
-                          <text x={4} fontSize={14} alignmentBaseline="middle">
+                          <text
+                            x={4}
+                            fontSize={14}
+                            alignmentBaseline="middle"
+                            onClick={() => handleEvent(geo)}>
                             {cur.id}
                           </text>
                         </Annotation>
