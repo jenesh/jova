@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import * as member from '../api/propublica/member';
 import CongressPerson from '../../components/CongressPerson';
 import SearchForm from '../../components/SearchForm';
+import NavBar from '../../components/NavBar/NavBar'
 
 const SearchHouse = () => {
   const [houseData, setHouseData] = useState();
@@ -38,6 +39,7 @@ const SearchHouse = () => {
 
   return (
     <div>
+      <NavBar/>
       <h1>Congress</h1>
       <SearchForm
         handleFormSubmit={handleFormSubmit}
