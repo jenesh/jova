@@ -5,7 +5,7 @@ import '../styles/tailwind.css';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className="mx-auto pt-12 pl-32 pr-32 bg-black m-0 text-white h-screen">
+    <div className="mx-auto pt-12 pl-32 pr-32 bg-black m-0 text-white min-h-screen">
       <Head>
         <title>JOVA</title>
       </Head>
@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
         </div>
       </main>
 
-      <footer className="flex justify-center content-center">
+      <footer className="flex justify-center content-center pt-6">
         <p>Made with ❤️ 2021</p>
       </footer>
     </div>
