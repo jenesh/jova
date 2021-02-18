@@ -28,7 +28,6 @@ export async function getMemberById(memberId) {
 
   const response = await fetch(url, headers);
   const { results } = await response.json();
-
   return {
     results,
   };
@@ -61,25 +60,8 @@ export async function getVotingPositions(memberId) {
 
   const response = await fetch(url, headers);
   const { results } = await response.json();
-
+  console.log(results);
   return {
     results,
   };
 }
-
-const Member = ({ data }) => {
-  useEffect(() => {
-    // getAllSenateMembers()
-    // getAllHouseMembers()
-    // getMemberById('O000172')
-  });
-
-  return (
-    <div>
-      <h1>Member</h1>
-      <p>k</p>
-    </div>
-  );
-};
-
-export default Member;
