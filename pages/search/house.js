@@ -38,7 +38,7 @@ const SearchHouse = () => {
 
   return (
     <div>
-      <NavBar />
+      <NavBar page="house" />
       <h1>Congress</h1>
       <SearchForm
         handleFormSubmit={handleFormSubmit}

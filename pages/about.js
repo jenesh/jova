@@ -4,7 +4,7 @@ import NavBar from '../components/NavBar/NavBar';
 export default function About() {
   return (
     <div>
-      <NavBar />
+      <NavBar page="about" />
       <div className="my-8">
         <h1 className="text-yellow-200 my-3 text-3xl">Jova's Mission</h1>
         <p>
