@@ -49,25 +49,35 @@ const State = ({ id, headers }) => {
         <NavBar />
       </div>
       <h1 className="text-4xl pt-4 flex justify-center">{States[id]}</h1>
-      <div className="grid grid-cols-2 pt-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 pt-8">
         <div>
-          <h1 className="text-xl pb-2 flex justify-center font-semibold tracking-wide">
+          <h1 className="text-xl pt-4 md:pt-0 pb-4 flex justify-center font-semibold tracking-wide">
             Senators
           </h1>
+          <div className="grid grid-cols-9 pl-4 pr-4 text-sm md:text-base md:font-medium">
+            <p className="col-span-4">Name</p>
+            <p className="col-span-4 text-right">Next Election</p>
+            <p className="col-span-1 text-right">State</p>
+          </div>
           {senators
             ? senators.map((el) => {
-                return <CongressPerson key={el.id} data={el} />;
-              })
+              return <CongressPerson key={el.id} data={el} />;
+            })
             : null}
         </div>
         <div>
-          <h1 className="text-xl pb-2 pl-4 flex justify-center font-semibold tracking-wide">
+          <h1 className="text-xl pt-4 md:pt-0 pb-4 pl-4 flex justify-center font-semibold tracking-wide">
             Representatives
           </h1>
+          <div className="grid grid-cols-9 pl-4 pr-4 text-sm md:text-base md:font-medium">
+            <p className="col-span-4">Name</p>
+            <p className="col-span-4 text-right">Next Election</p>
+            <p className="col-span-1 text-right">State</p>
+          </div>
           {representative
             ? representative.map((el) => {
-                return <CongressPerson key={el.id} data={el} />;
-              })
+              return <CongressPerson key={el.id} data={el} />;
+            })
             : null}
         </div>
       </div>

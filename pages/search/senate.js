@@ -59,7 +59,11 @@ const SearchSenate = ({ headers }) => {
           display: 'flex',
         }}>
         <div className="min-w-full">
-          <h1>Senate</h1>
+          <div className="grid grid-cols-9 pl-4 pr-4 text-sm md:text-base md:font-medium">
+            <p className="col-span-4">Name</p>
+            <p className="col-span-4 text-right">Next Election</p>
+            <p className="col-span-1 text-right">State</p>
+          </div>
           {senateData ? (
             <div className="min-w-full">
               {senateData.map((el) => {
