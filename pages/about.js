@@ -8,7 +8,7 @@ export default function About() {
       <div className="my-8">
         <h1 className="text-center text-yellow-200 my-3 text-3xl">Jova's Mission</h1>
         <p>
-        Jova’s mission is to make government information accessible by providing up to date information on the current house of representatives and senators. Jova aims to equip people with the necessary facts and information to help them become informed voters. 
+        Jova’s mission is to make government information accessible and approachable by providing up to date information on the current house of representatives and senators. Jova aims to equip people with the necessary facts and information to help them become informed voters. 
         </p>
       </div>
       <div className="grid justify-items-center p-2 my-4 ...">
