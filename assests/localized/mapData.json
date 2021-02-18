@@ -218,7 +218,7 @@
   {
     "abreviation": "NY",
     "val": "36",
-    "name": "new York",
+    "name": "New York",
     "party": "D"
   },
   {
@@ -338,13 +338,13 @@
   {
     "abreviation": "WA",
     "val": "53",
-    "name": "washington",
+    "name": "Washington",
     "party": "D"
   },
   {
     "abreviation": "WV",
     "val": "54",
-    "name": "West virgnia",
+    "name": "West Virgnia",
     "party": ""
   },
   {

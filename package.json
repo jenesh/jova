@@ -42,6 +42,7 @@
     "prettier": "^2.2.1",
     "react-simple-maps": "^2.3.0",
     "react-twitter-widgets": "^1.9.5",
-    "tailwindcss": "^2.0.3"
+    "tailwindcss": "^2.0.3",
+    "webpack": "^5.22.0"
   }
 }

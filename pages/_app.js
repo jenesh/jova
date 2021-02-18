@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
         </div>
       </main>
 
-      <footer className="flex justify-center content-center">
+      <footer className="flex justify-center content-center pt-6">
         <p>Made with ❤️ 2021</p>
       </footer>
     </div>
