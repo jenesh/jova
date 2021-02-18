@@ -3,23 +3,19 @@ import Link from 'next/link';
 
 const CongressPerson = ({ data }) => {
   return (
-    <div>
+    <div className="w-full">
       {data.party === 'D' ? (
-        <div className="border-blue-600 border-4 hover:bg-blue-600">
-          <Link href={`/profile/${data.id}`}>
-            <p>
-              {data.first_name} {data.last_name} {data.state}
-            </p>
-          </Link>
-        </div>
+        <Link href={`/profile/${data.id}`}>
+          <a className="border-blue-500 border-4 p-2 m-1 hover:bg-blue-500 grid">
+            {data.first_name} {data.last_name} {data.state}
+          </a>
+        </Link>
       ) : (
-        <div className="border-red-600 border-4 hover:bg-red-600">
-          <Link href={`/profile/${data.id}`}>
-            <p>
-              {data.first_name} {data.last_name} {data.state}
-            </p>
-          </Link>
-        </div>
+        <Link href={`/profile/${data.id}`}>
+          <a className="border-red-700 border-4 p-2 m-1 hover:bg-red-700 grid">
+            {data.first_name} {data.last_name} {data.state}
+          </a>
+        </Link>
       )}
     </div>
   );
