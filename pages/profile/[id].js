@@ -24,10 +24,23 @@ const Profile = ({ id }) => {
   useEffect(() => {
     const memberInformation = member.getMemberById(id);
     const votingPos = member.getVotingPositions(id);
-    votingPos.then(({ results }) => setVotingPositions(results[0].votes));
+    votingPos.then(({ results }) => filterAndSetVotingPositions(results[0].votes));
     memberInformation.then(({ results }) => setMemberInfo(results[0]));
   }, []);
 
+  const filterAndSetVotingPositions = (votingPositions) => {
+   let obj = {}
+   let newArr =[]
+   for(let i = 0; i < votingPositions.length; i++){
+       if(!obj[votingPositions[i].bill.bill_id]){
+            newArr.push(votingPositions[i])
+       }
+       obj[votingPositions[i].bill.bill_id] = votingPositions[i]
+   }
+   setVotingPositions(newArr)
+   return newArr
+  }
+  
   const renderBasicInfo = () => {
     if (memberInfo) {
       return <BasicInfo data={memberInfo} />;
