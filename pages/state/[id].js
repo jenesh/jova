@@ -44,7 +44,7 @@ const State = ({ id, headers }) => {
   if (!id) return <h1>Loading...</h1>;
 
   return (
-    <div>
+    <div className="">
       <div className="flex justify-center pb-6">
         <NavBar />
       </div>
