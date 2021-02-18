@@ -22,13 +22,13 @@ export async function getServerSideProps(context) {
   };
 }
 
-const Profile = ({ id }) => {
+const Profile = ({ id, headers }) => {
   const [votingPositions, setVotingPositions] = useState([]);
   const [memberInfo, setMemberInfo] = useState();
 
   useEffect(() => {
-    const memberInformation = member.getMemberById(id);
-    const votingPos = member.getVotingPositions(id);
+    const memberInformation = member.getMemberById(id, headers);
+    const votingPos = member.getVotingPositions(id, headers);
     votingPos.then(({ results }) => setVotingPositions(results[0].votes));
     memberInformation.then(({ results }) => setMemberInfo(results[0]));
   }, []);

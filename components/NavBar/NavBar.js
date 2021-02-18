@@ -26,7 +26,9 @@ export default function NavBar({ page }) {
           </a>
         </Link>
         <Link href="/about">
-          <a className={page === 'about' && 'font-bold text-yellow-200'}>About</a>
+          <a className={page === 'about' && 'font-bold text-yellow-200'}>
+            About
+          </a>
         </Link>
       </ul>
     </div>
