@@ -6,7 +6,7 @@ export default function About() {
     <div>
       <NavBar page="about" />
       <div className="my-8">
-        <h1 className="text-center text-yellow-200 my-3 text-3xl">
+        <h1 className="text-center text-yellow-200 my-3 text-3xl font-semibold">
           Jova's Mission
         </h1>
         <p>
