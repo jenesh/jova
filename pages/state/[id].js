@@ -7,11 +7,6 @@ import { headers } from '../api/propublica/headers';
 
 export async function getServerSideProps(context) {
   const { id } = context.params;
-  // const headers = {
-  //   headers: {
-  //     'X-API-KEY': process.env.PROPUBLICA_API_KEY,
-  //   },
-  // };
 
   return {
     props: {
