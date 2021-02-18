@@ -6,7 +6,6 @@ import {
   Geography,
   Marker,
   Annotation,
-  ZoomableGroup,
 } from 'react-simple-maps';
 
 import allStates from '../../assests/localized/mapData.json';

@@ -5,8 +5,8 @@ export default function About() {
   return (
     <div>
       <NavBar />
-      <div classname="my-8">
-        <h1 className="text-yellow-200 my-3 text-3xl"> Jova's Mission</h1>
+      <div className="my-8">
+        <h1 className="text-yellow-200 my-3 text-3xl">Jova's Mission</h1>
         <p>
           is to provide public with the latest infromation about current house
           and senate representatives in the United States. Jova is an innovative
@@ -28,7 +28,7 @@ export default function About() {
             </h3>
             <a
               href="https://www.linkedin.com/in/jeneshnapit/"
-              class="block mt-1 text-xs leading-tight font-medium text-yellow hover:underline">
+              className="block mt-1 text-xs leading-tight font-medium text-yellow hover:underline">
               Linkedin
             </a>
           </div>
@@ -42,7 +42,7 @@ export default function About() {
             </h3>
             <a
               href="https://www.linkedin.com/in/owen-jones-92a848a6/"
-              class="block mt-1 text-xs leading-tight font-medium text-yellow hover:underline">
+              className="block mt-1 text-xs leading-tight font-medium text-yellow hover:underline">
               Linkedin
             </a>
           </div>
@@ -56,7 +56,7 @@ export default function About() {
             </h3>
             <a
               href=" https://www.linkedin.com/in/vonielbrown/"
-              class="block mt-1 text-xs leading-tight font-medium text-yellow hover:underline">
+              className="block mt-1 text-xs leading-tight font-medium text-yellow hover:underline">
               Linkedin
             </a>
           </div>
@@ -68,7 +68,7 @@ export default function About() {
             <h3> Full Stack Web Developer Fellow at Pursuit</h3>
             <a
               href="https://www.linkedin.com/in/aransa-garcia/"
-              class="block mt-1 text-xs leading-tight font-medium text-yellow hover:underline">
+              className="block mt-1 text-xs leading-tight font-medium text-yellow hover:underline">
               Linkedin
             </a>
           </div>
