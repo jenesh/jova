@@ -23,7 +23,6 @@ const Profile = ({ id }) => {
   useEffect(() => {
     const memberInformation = member.getMemberById(id);
     const votingPos = member.getVotingPositions(id);
-    console.log(votingPos)
     votingPos.then(({ results }) => filterAndSetVotingPositions(results[0].votes));
     memberInformation.then(({ results }) => setMemberInfo(results[0]));
   }, []);
