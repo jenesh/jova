@@ -8,21 +8,21 @@ const CongressPerson = ({ data }) => {
     <div className="w-full">
       {data.party === 'D' ? (
         <Link href={`/profile/${data.id}`}>
-          <a className="border-blue-500 border-4 p-2 m-1 hover:bg-blue-500 grid grid-cols-8">
+          <a className="border-blue-500 border-4 p-2 m-1 hover:bg-blue-500 grid grid-cols-9">
             <p className="col-span-4">
               {short_title} {first_name} {last_name}
             </p>
-            <p className="text-right col-span-3">{next_election}</p>
+            <p className="text-right col-span-4">{next_election}</p>
             <p className="text-right">{state} </p>
           </a>
         </Link>
       ) : (
         <Link href={`/profile/${data.id}`}>
-          <a className="border-red-700 border-4 p-2 m-1 hover:bg-red-700 grid grid-cols-8">
+          <a className="border-red-700 border-4 p-2 m-1 hover:bg-red-700 grid grid-cols-9">
             <p className="col-span-4">
               {short_title} {first_name} {last_name}
             </p>
-            <p className="text-right col-span-3">{next_election}</p>
+            <p className="text-right col-span-4">{next_election}</p>
             <p className="text-right">{state} </p>
           </a>
         </Link>
