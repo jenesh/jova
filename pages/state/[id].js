@@ -20,16 +20,24 @@ const State = ({ id, headers }) => {
   const [senators, setSenators] = useState();
   const [representative, setRepresentatives] = useState();
 
+  const filterByState = (el) => el.state === id;
+
   const setRepDataByState = (res) => {
-    const t = res.filter((el) => el.state === id);
-    setRepresentatives(t);
+    const rep = res.filter(filterByState);
+    setRepresentatives(rep);
+  };
+
+  const setSenateDataByState = (res) => {
+    const rep = res.filter(filterByState);
+    setSenators(rep);
   };
 
   useEffect(() => {
-    const senate = member.getSenateMemberByState(id, headers);
+    const senate = member.getAllSenateMembers(headers);
     const house = member.getAllHouseMembers(headers);
+    console.log(senate);
 
-    senate.then(({ results }) => setSenators(results));
+    senate.then(({ results }) => setSenateDataByState(results[0].members));
     house.then(({ results }) => setRepDataByState(results[0].members));
   }, []);
 
