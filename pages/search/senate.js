@@ -15,8 +15,6 @@ export async function getServerSideProps() {
 
 const SearchSenate = ({ headers }) => {
   const [senateData, setSenateData] = useState();
-  const [searchInput, setSearchInput] = useState();
-  const [backButton, setBackButton] = useState();
 
   const loadSenateMembers = () => {
     const senate = member.getAllSenateMembers(headers);
@@ -28,32 +26,18 @@ const SearchSenate = ({ headers }) => {
     loadSenateMembers();
   }, []);
 
-  const filterHelper = (el) =>
-    el.state.toLowerCase() === searchInput.toLowerCase();
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
+  const handleSelectChange = (e) => {
     if (senateData) {
-      const filteredSenate = senateData.filter(filterHelper);
-      setSenateData(filteredSenate);
-      setBackButton(true);
+      const filteredReps = senateData.filter(
+        (el) => el.state === e.target.value,
+      );
+      setSenateData(filteredReps);
     }
   };
-
-  const handleBackClick = () => {
-    loadSenateMembers();
-    setBackButton(false);
-  };
-
   return (
     <div>
       <NavBar page="senate" />
-      <SearchForm
-        handleFormSubmit={handleFormSubmit}
-        setSearchInput={setSearchInput}
-        backButton={backButton}
-        handleBackClick={handleBackClick}
-      />
+      <SearchForm handleSelectChange={handleSelectChange} />
       <div
         style={{
           display: 'flex',
