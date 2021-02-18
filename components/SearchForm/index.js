@@ -1,26 +1,39 @@
 import React, { useEffect, useState } from 'react';
+import mapData from '../../assests/localized/mapData.json';
 
 const SearchForm = ({
-  handleFormSubmit,
-  setSearchInput,
+  handleSelectChange,
   backButton,
   handleBackClick,
+  searchInput,
 }) => {
   return (
     <div className="pt-8 pb-4">
       <form
         onSubmit={(e) => {
-          handleFormSubmit(e);
+          e.preventDefault();
         }}
         className="flex justify-center">
-        <input
-          onChange={(e) => setSearchInput(e.target.value)}
-          required
-          placeholder="Search by State..."
+        <select
+          value={searchInput}
           className="text-black w-96 p-1 pl-4 pr-4"
-        />
+          onChange={handleSelectChange}>
+          {mapData.map((el) => {
+            return (
+              el.name && (
+                <option key={el.abreviation} value={el.abreviation}>
+                  {el.name}
+                </option>
+              )
+            );
+          })}
+        </select>
+        {backButton && (
+          <button onClick={handleBackClick} className="pl-1">
+            Back to list
+          </button>
+        )}
       </form>
-      {backButton && <button onClick={handleBackClick}>Back to list</button>}
     </div>
   );
 };

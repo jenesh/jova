@@ -15,8 +15,7 @@ export async function getServerSideProps() {
 
 const SearchHouse = ({ headers }) => {
   const [houseData, setHouseData] = useState();
-  const [searchInput, setSearchInput] = useState();
-  const [backButton, setBackButton] = useState();
+  const [backButton, setBackButton] = useState(false);
 
   const loadHouseMembers = () => {
     const house = member.getAllHouseMembers(headers);
@@ -28,16 +27,14 @@ const SearchHouse = ({ headers }) => {
     loadHouseMembers();
   }, []);
 
-  const filterHelper = (el) =>
-    el.state.toLowerCase() === searchInput.toLowerCase();
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
+  const handleSelectChange = (e) => {
     if (houseData) {
-      const filteredReps = houseData.filter(filterHelper);
+      const filteredReps = houseData.filter(
+        (el) => el.state === e.target.value,
+      );
       setHouseData(filteredReps);
-      setBackButton(true);
     }
+    setBackButton(!backButton);
   };
 
   const handleBackClick = () => {
@@ -49,10 +46,9 @@ const SearchHouse = ({ headers }) => {
     <div>
       <NavBar page="house" />
       <SearchForm
-        handleFormSubmit={handleFormSubmit}
-        setSearchInput={setSearchInput}
-        backButton={backButton}
+        handleSelectChange={handleSelectChange}
         handleBackClick={handleBackClick}
+        backButton={backButton}
       />
       <div
         style={{
