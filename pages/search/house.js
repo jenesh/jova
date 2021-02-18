@@ -3,14 +3,29 @@ import * as member from '../api/propublica/member';
 import CongressPerson from '../../components/CongressPerson';
 import SearchForm from '../../components/SearchForm';
 import NavBar from '../../components/NavBar/NavBar';
+import process from 'process';
 
-const SearchHouse = () => {
+export async function getServerSideProps() {
+  const headers = {
+    headers: {
+      'X-API-KEY': process.env.PROPUBLICA_API_KEY,
+    },
+  };
+
+  return {
+    props: {
+      headers,
+    },
+  };
+}
+
+const SearchHouse = ({ headers }) => {
   const [houseData, setHouseData] = useState();
   const [searchInput, setSearchInput] = useState();
   const [backButton, setBackButton] = useState();
 
   const loadHouseMembers = () => {
-    const house = member.getAllHouseMembers();
+    const house = member.getAllHouseMembers(headers);
 
     house.then(({ results }) => setHouseData(results[0].members));
   };

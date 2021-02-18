@@ -4,15 +4,20 @@ import BasicInfo from '../../components/Profile/BasicInfo';
 import VotingPosition from '../../components/Profile/VotingPosition.js';
 import * as member from '../api/propublica/member';
 import TwitterTimeline from '../../components/Twitter/TwitterTimeline';
-
-//need to get member Id from the route props
+import process from 'process';
 
 export async function getServerSideProps(context) {
   const { id } = context.params;
+  const headers = {
+    headers: {
+      'X-API-KEY': process.env.PROPUBLICA_API_KEY,
+    },
+  };
 
   return {
     props: {
       id,
+      headers,
     },
   };
 }

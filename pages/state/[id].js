@@ -3,18 +3,25 @@ import * as member from '../api/propublica/member';
 import CongressPerson from '../../components/CongressPerson';
 import NavBar from '../../components/NavBar/NavBar';
 import { States } from '../../assests/localized/state';
+import process from 'process';
 
 export async function getServerSideProps(context) {
   const { id } = context.params;
+  const headers = {
+    headers: {
+      'X-API-KEY': process.env.PROPUBLICA_API_KEY,
+    },
+  };
 
   return {
     props: {
       id,
+      headers,
     },
   };
 }
 
-const State = ({ id }) => {
+const State = ({ id, headers }) => {
   const [senators, setSenators] = useState();
   const [representative, setRepresentatives] = useState();
 
@@ -24,8 +31,8 @@ const State = ({ id }) => {
   };
 
   useEffect(() => {
-    const senate = member.getSenateMemberByState(id);
-    const house = member.getAllHouseMembers();
+    const senate = member.getSenateMemberByState(id, headers);
+    const house = member.getAllHouseMembers(headers);
 
     senate.then(({ results }) => setSenators(results));
     house.then(({ results }) => setRepDataByState(results[0].members));
