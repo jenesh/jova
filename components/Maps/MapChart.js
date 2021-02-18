@@ -45,75 +45,73 @@ const handleHover = (geo) => {
 const MapChart = () => {
   return (
     <ComposableMap projection="geoAlbersUsa">
-      <ZoomableGroup>
-        <Geographies geography={geoUrl}>
-          {({ geographies }) => (
-            <>
-              {geographies.map((geo) => (
-                <Geography
-                  key={geo.rsmKey}
-                  stroke="#FFF"
-                  geography={geo}
-                  fill="#DDD"
-                  onClick={() => handleEvent(geo)}
-                  style={{
-                    default: {
-                      fill: handleStateParty(geo),
-                      outline: 'none',
-                    },
-                    hover: {
-                      fill: handleHover(geo),
-                      outline: 'none',
-                      cursor: 'pointer',
-                    },
-                    pressed: {
-                      fill: '#E42',
-                      outline: 'none',
-                    },
-                  }}
-                />
-              ))}
-              {geographies.map((geo) => {
-                const centroid = geoCentroid(geo);
-                const cur = allStates.find((s) => s.val === geo.id);
-                return (
-                  <g key={geo.rsmKey + '-name'}>
-                    {cur &&
-                      centroid[0] > -160 &&
-                      centroid[0] < -67 &&
-                      (Object.keys(offsets).indexOf(cur.abreviation) === -1 ? (
-                        <Marker coordinates={centroid}>
-                          <text
-                            y="2"
-                            fontSize={14}
-                            textAnchor="middle"
-                            onClick={() => handleEvent(geo)}
-                            style={{ cursor: 'pointer' }}>
-                            {cur.abreviation}
-                          </text>
-                        </Marker>
-                      ) : (
-                        <Annotation
-                          subject={centroid}
-                          dx={offsets[cur.abreviation][0]}
-                          dy={offsets[cur.abreviation][1]}>
-                          <text
-                            x={4}
-                            fontSize={14}
-                            alignmentBaseline="middle"
-                            onClick={() => handleEvent(geo)}
-                            style={{ cursor: 'pointer' }}>
-                            {cur.abreviation}
-                          </text>
-                        </Annotation>
-                      ))}
-                  </g>
-                );
-              })}
-            </>
-          )}
-        </Geographies>
-      </ZoomableGroup>
+      <Geographies geography={geoUrl}>
+        {({ geographies }) => (
+          <>
+            {geographies.map((geo) => (
+              <Geography
+                key={geo.rsmKey}
+                stroke="#FFF"
+                geography={geo}
+                fill="#DDD"
+                onClick={() => handleEvent(geo)}
+                style={{
+                  default: {
+                    fill: handleStateParty(geo),
+                    outline: 'none',
+                  },
+                  hover: {
+                    fill: handleHover(geo),
+                    outline: 'none',
+                    cursor: 'pointer',
+                  },
+                  pressed: {
+                    fill: '#E42',
+                    outline: 'none',
+                  },
+                }}
+              />
+            ))}
+            {geographies.map((geo) => {
+              const centroid = geoCentroid(geo);
+              const cur = allStates.find((s) => s.val === geo.id);
+              return (
+                <g key={geo.rsmKey + '-name'}>
+                  {cur &&
+                    centroid[0] > -160 &&
+                    centroid[0] < -67 &&
+                    (Object.keys(offsets).indexOf(cur.abreviation) === -1 ? (
+                      <Marker coordinates={centroid}>
+                        <text
+                          y="2"
+                          fontSize={14}
+                          textAnchor="middle"
+                          onClick={() => handleEvent(geo)}
+                          style={{ cursor: 'pointer' }}>
+                          {cur.abreviation}
+                        </text>
+                      </Marker>
+                    ) : (
+                      <Annotation
+                        subject={centroid}
+                        dx={offsets[cur.abreviation][0]}
+                        dy={offsets[cur.abreviation][1]}>
+                        <text
+                          x={4}
+                          fontSize={14}
+                          alignmentBaseline="middle"
+                          onClick={() => handleEvent(geo)}
+                          style={{ cursor: 'pointer' }}>
+                          {cur.abreviation}
+                        </text>
+                      </Annotation>
+                    ))}
+                </g>
+              );
+            })}
+          </>
+        )}
+      </Geographies>
     </ComposableMap>
   );
 };

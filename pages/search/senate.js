@@ -50,10 +50,10 @@ const SearchSenate = () => {
         style={{
           display: 'flex',
         }}>
-        <div>
+        <div className="min-w-full">
           <h1>Senate</h1>
           {senateData ? (
-            <div>
+            <div className="min-w-full">
               {senateData.map((el) => {
                 return <CongressPerson key={el.id} data={el} />;
               })}
