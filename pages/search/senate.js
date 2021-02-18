@@ -39,7 +39,6 @@ const SearchSenate = () => {
   return (
     <div>
       <NavBar page="senate" />
-      <h1>Congress</h1>
       <SearchForm
         handleFormSubmit={handleFormSubmit}
         setSearchInput={setSearchInput}
