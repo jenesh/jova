@@ -6,7 +6,6 @@ import {
   Geography,
   Marker,
   Annotation,
-  ZoomableGroup,
 } from 'react-simple-maps';
 
 import allStates from '../../assests/localized/mapData.json';
@@ -45,7 +44,6 @@ const handleHover = (geo) => {
 const MapChart = () => {
   return (
     <ComposableMap projection="geoAlbersUsa">
-      <ZoomableGroup>
         <Geographies geography={geoUrl}>
           {({ geographies }) => (
             <>
@@ -113,7 +111,6 @@ const MapChart = () => {
             </>
           )}
         </Geographies>
-      </ZoomableGroup>
     </ComposableMap>
   );
 };
