@@ -11,7 +11,7 @@ export default function NavBar() {
           </a>
         </Link>
       </div>
-      <ul className=" flex justify-between pt-8 text-2xl">
+      <ul className="flex flex-col md:flex-row md:justify-between pt-8 text-lg md:text-2xl text-center">
         <Link href="/">
           <a>Home</a>
         </Link>
