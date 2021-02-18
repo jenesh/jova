@@ -39,20 +39,20 @@ const Profile = ({ id, headers }) => {
   return (
     <div>
       <NavBar />
-      <div className="flex flex-wrap items-start mt-12">
-        <div>
-          {renderBasicInfo()}
-          <div className="grid gap-4 grid-cols-2 static">
+      <div>
+        {renderBasicInfo()}
+        <div className="grid grid-cols-1 lg:grid-cols-1 text-center">
+          {memberInfo && (
+            <div className="row-span-2 bg-white-500 pb-16">
+              <TwitterTimeline screenName={memberInfo.twitter_account} />
+            </div>
+          )}
+          <div className="">
             {votingPositions &&
               votingPositions.map((elem) => {
                 return <VotingPosition key={elem.time} data={elem} />;
               })}
           </div>
-        </div>
-        <div>
-          {memberInfo && (
-            <TwitterTimeline screenName={memberInfo.twitter_account} />
-          )}
         </div>
       </div>
     </div>

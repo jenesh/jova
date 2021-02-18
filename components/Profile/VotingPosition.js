@@ -2,7 +2,7 @@ import React from 'react';
 
 const VotingPosition = ({ data }) => {
   const className =
-    'amendment-info rounded-lg border-gray-300 border-2 w-96 overFlow-auto overflow-x-scroll h-52';
+    'amendment-info rounded-lg border-gray-300 border-2  overflow-auto mb-10 p-2';
   if (Object.values(data.amendment).length !== 0 && data.bill.bill_id) {
     return (
       <div className={className}>
