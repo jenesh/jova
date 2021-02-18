@@ -11,7 +11,6 @@ const BasicInfo = ({ data }) => {
       <p className="hover:underline">
         <a href={data.url}>{data.url}</a>
       </p>
-      <a href={data.rss_url}>{data.rss_url}</a>
     </div>
   );
 };
