@@ -10,7 +10,7 @@ export default function Home() {
     <div>
       <div className="">
         <div className="flex  justify-center">
-          <NavBar />
+          <NavBar page="home" />
         </div>
       </div>
       <MapChart />

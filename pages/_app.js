@@ -5,7 +5,7 @@ import '../styles/tailwind.css';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className="mx-auto pt-12 pl-32 pr-32 bg-black m-0 text-white min-h-screen">
+    <div className="mx-auto pt-8 pl-8 pr-8 md:pt-12 md:pl-32 md:pr-32 bg-black m-0 text-white min-h-screen">
       <Head>
         <title>JOVA</title>
       </Head>
