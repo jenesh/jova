@@ -1,9 +1,11 @@
 import React from 'react';
 
 const VotingPosition = ({ data }) => {
-  if ((data.amendment.length > 0) && data.bill.bill_id) {
+  const className =
+    'amendment-info rounded-lg border-gray-300 border-2 w-96 overFlow-auto overflow-x-scroll h-52';
+  if (data.amendment.length > 0 && data.bill.bill_id) {
     return (
-      <div className="amendment-info" >
+      <div className={className}>
         <p>{data.date}</p>
         <p>Bill Id: {data.bill.bill_id}</p>
         <h2>Bill Description: {data.description}</h2>
@@ -16,7 +18,7 @@ const VotingPosition = ({ data }) => {
     return (
       <div>
         {data.bill.bill_id && (
-          <div className="bill-info">
+          <div className={className}>
             <p>{data.date}</p>
             <p>Bill Id: {data.bill.bill_id}</p>
             <h2>Bill Description: {data.description}</h2>
