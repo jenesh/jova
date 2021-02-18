@@ -61,8 +61,8 @@ const State = ({ id, headers }) => {
           </div>
           {senators
             ? senators.map((el) => {
-              return <CongressPerson key={el.id} data={el} />;
-            })
+                return <CongressPerson key={el.id} data={el} />;
+              })
             : null}
         </div>
         <div>
@@ -76,8 +76,8 @@ const State = ({ id, headers }) => {
           </div>
           {representative
             ? representative.map((el) => {
-              return <CongressPerson key={el.id} data={el} />;
-            })
+                return <CongressPerson key={el.id} data={el} />;
+              })
             : null}
         </div>
       </div>
