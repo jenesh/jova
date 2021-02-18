@@ -3,14 +3,23 @@ import * as member from '../api/propublica/member';
 import CongressPerson from '../../components/CongressPerson';
 import SearchForm from '../../components/SearchForm';
 import NavBar from '../../components/NavBar/NavBar';
+import { headers } from '../api/propublica/headers';
 
-const SearchSenate = () => {
+export async function getServerSideProps() {
+  return {
+    props: {
+      headers,
+    },
+  };
+}
+
+const SearchSenate = ({ headers }) => {
   const [senateData, setSenateData] = useState();
   const [searchInput, setSearchInput] = useState();
   const [backButton, setBackButton] = useState();
 
   const loadSenateMembers = () => {
-    const senate = member.getAllSenateMembers();
+    const senate = member.getAllSenateMembers(headers);
 
     senate.then(({ results }) => setSenateData(results[0].members));
   };

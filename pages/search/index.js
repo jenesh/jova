@@ -3,8 +3,17 @@ import * as member from '../api/propublica/member';
 import CongressPerson from '../../components/CongressPerson';
 import SearchForm from '../../components/SearchForm';
 import NavBar from '../../components/NavBar/NavBar';
+import { headers } from '../api/propublica/headers';
 
-const Search = () => {
+export async function getServerSideProps() {
+  return {
+    props: {
+      headers,
+    },
+  };
+}
+
+const Search = ({ headers }) => {
   const [senateData, setSenateData] = useState();
   const [houseData, setHouseData] = useState();
   const [searchInput, setSearchInput] = useState();

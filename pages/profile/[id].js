@@ -4,8 +4,7 @@ import BasicInfo from '../../components/Profile/BasicInfo';
 import VotingPosition from '../../components/Profile/VotingPosition.js';
 import * as member from '../api/propublica/member';
 import TwitterTimeline from '../../components/Twitter/TwitterTimeline';
-
-//need to get member Id from the route props
+import { headers } from '../api/propublica/headers';
 
 export async function getServerSideProps(context) {
   const { id } = context.params;
@@ -13,17 +12,18 @@ export async function getServerSideProps(context) {
   return {
     props: {
       id,
+      headers,
     },
   };
 }
 
-const Profile = ({ id }) => {
+const Profile = ({ id, headers }) => {
   const [votingPositions, setVotingPositions] = useState([]);
   const [memberInfo, setMemberInfo] = useState();
 
   useEffect(() => {
-    const memberInformation = member.getMemberById(id);
-    const votingPos = member.getVotingPositions(id);
+    const memberInformation = member.getMemberById(id, headers);
+    const votingPos = member.getVotingPositions(id, headers);
     votingPos.then(({ results }) => setVotingPositions(results[0].votes));
     memberInformation.then(({ results }) => setMemberInfo(results[0]));
   }, []);

@@ -1,7 +1,4 @@
-import React, { useEffect } from 'react';
-import { headers } from './headers';
-
-export async function getAllSenateMembers() {
+export async function getAllSenateMembers(headers) {
   const url = `https://api.propublica.org/congress/v1/117/senate/members.json`;
 
   const response = await fetch(url, headers);
@@ -12,7 +9,7 @@ export async function getAllSenateMembers() {
   };
 }
 
-export async function getAllHouseMembers() {
+export async function getAllHouseMembers(headers) {
   const url = `https://api.propublica.org/congress/v1/117/house/members.json`;
 
   const response = await fetch(url, headers);
@@ -23,7 +20,7 @@ export async function getAllHouseMembers() {
   };
 }
 
-export async function getMemberById(memberId) {
+export async function getMemberById(memberId, headers) {
   const url = `https://api.propublica.org/congress/v1/members/${memberId}.json`;
 
   const response = await fetch(url, headers);
@@ -33,7 +30,7 @@ export async function getMemberById(memberId) {
   };
 }
 
-export async function getHouseMemberByState(state, district) {
+export async function getHouseMemberByState(state, district, headers) {
   const url = `https://api.propublica.org/congress/v1/members/house/${state}/${district}/current.json`;
 
   const response = await fetch(url, headers);
@@ -44,7 +41,7 @@ export async function getHouseMemberByState(state, district) {
   };
 }
 
-export async function getSenateMemberByState(state) {
+export async function getSenateMemberByState(state, headers) {
   const url = `https://api.propublica.org/congress/v1/members/senate/${state}/current.json`;
 
   const response = await fetch(url, headers);
@@ -55,7 +52,7 @@ export async function getSenateMemberByState(state) {
   };
 }
 
-export async function getVotingPositions(memberId) {
+export async function getVotingPositions(memberId, headers) {
   const url = `https://api.propublica.org/congress/v1/members/${memberId}/votes.json`;
 
   const response = await fetch(url, headers);

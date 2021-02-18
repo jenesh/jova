@@ -13,20 +13,24 @@ export default function NavBar({ page }) {
       </div>
       <ul className="flex flex-col md:flex-row md:justify-between pt-8 text-lg md:text-2xl text-center">
         <Link href="/">
-          <a className={page === 'home' && 'font-bold text-yellow-200'}>Home</a>
+          <a className={page === 'home' ? 'font-bold text-yellow-200' : ''}>
+            Home
+          </a>
         </Link>
         <Link href="/search/house">
-          <a className={page === 'house' && 'font-bold text-yellow-200'}>
+          <a className={page === 'house' ? 'font-bold text-yellow-200' : ''}>
             Find Representatives
           </a>
         </Link>
         <Link href="/search/senate">
-          <a className={page === 'senate' && 'font-bold text-yellow-200'}>
+          <a className={page === 'senate' ? 'font-bold text-yellow-200' : ''}>
             Find Senators
           </a>
         </Link>
         <Link href="/about">
-          <a className={page === 'about' && 'font-bold text-yellow-200'}>About</a>
+          <a className={page === 'about' ? 'font-bold text-yellow-200' : ''}>
+            About
+          </a>
         </Link>
       </ul>
     </div>
