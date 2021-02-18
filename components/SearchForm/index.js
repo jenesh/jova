@@ -15,7 +15,7 @@ const SearchForm = ({
         <input
           onChange={(e) => setSearchInput(e.target.value)}
           required
-          placeholder="Search..."
+          placeholder="Search by State..."
           className="text-black"
         />
       </form>
