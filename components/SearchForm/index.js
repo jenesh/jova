@@ -16,6 +16,7 @@ const SearchForm = ({
           onChange={(e) => setSearchInput(e.target.value)}
           required
           placeholder="Search..."
+          className="text-black"
         />
       </form>
       {backButton && <button onClick={handleBackClick}>Back to list</button>}
