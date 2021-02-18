@@ -3,15 +3,15 @@ import * as member from '../api/propublica/member';
 import CongressPerson from '../../components/CongressPerson';
 import NavBar from '../../components/NavBar/NavBar';
 import { States } from '../../assests/localized/state';
-import process from 'process';
+import { headers } from '../api/propublica/headers';
 
 export async function getServerSideProps(context) {
   const { id } = context.params;
-  const headers = {
-    headers: {
-      'X-API-KEY': process.env.PROPUBLICA_API_KEY,
-    },
-  };
+  // const headers = {
+  //   headers: {
+  //     'X-API-KEY': process.env.PROPUBLICA_API_KEY,
+  //   },
+  // };
 
   return {
     props: {
