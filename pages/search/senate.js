@@ -40,7 +40,7 @@ const SearchSenate = () => {
 
   return (
     <div>
-      <NavBar/>
+      <NavBar />
       <h1>Congress</h1>
       <SearchForm
         handleFormSubmit={handleFormSubmit}
