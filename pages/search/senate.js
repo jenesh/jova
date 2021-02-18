@@ -15,6 +15,7 @@ export async function getServerSideProps() {
 
 const SearchSenate = ({ headers }) => {
   const [senateData, setSenateData] = useState();
+  const [backButton, setBackButton] = useState(false);
 
   const loadSenateMembers = () => {
     const senate = member.getAllSenateMembers(headers);
@@ -32,12 +33,23 @@ const SearchSenate = ({ headers }) => {
         (el) => el.state === e.target.value,
       );
       setSenateData(filteredReps);
+      setBackButton(!backButton);
     }
   };
+
+  const handleBackClick = () => {
+    loadSenateMembers();
+    setBackButton(false);
+  };
+
   return (
     <div>
       <NavBar page="senate" />
-      <SearchForm handleSelectChange={handleSelectChange} />
+      <SearchForm
+        handleSelectChange={handleSelectChange}
+        handleBackClick={handleBackClick}
+        backButton={backButton}
+      />
       <div
         style={{
           display: 'flex',
