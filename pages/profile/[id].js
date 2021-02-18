@@ -3,6 +3,7 @@ import NavBar from '../../components/NavBar/NavBar.js';
 import BasicInfo from '../../components/Profile/BasicInfo';
 import VotingPosition from '../../components/Profile/VotingPosition.js';
 import * as member from '../api/propublica/member';
+import TwitterTimeline from '../../components/Twitter/TwitterTimeline';
 
 //need to get member Id from the route props
 
@@ -38,12 +39,22 @@ const Profile = ({ id }) => {
   return (
     <div>
       <NavBar />
-      {renderBasicInfo()}
-      {votingPositions
-        ? votingPositions.map((elem) => {
-            return <VotingPosition key={elem.time} data={elem} />;
-          })
-        : null}
+      <div className="flex flex-wrap items-start mt-12">
+        <div>
+          {renderBasicInfo()}
+          <div className="grid gap-4 grid-cols-2 static">
+            {votingPositions &&
+              votingPositions.map((elem) => {
+                return <VotingPosition key={elem.time} data={elem} />;
+              })}
+          </div>
+        </div>
+        <div>
+          {memberInfo && (
+            <TwitterTimeline screenName={memberInfo.twitter_account} />
+          )}
+        </div>
+      </div>
     </div>
   );
 };
