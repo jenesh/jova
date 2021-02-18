@@ -5,7 +5,7 @@ const CongressPerson = ({ data }) => {
   return (
     <div>
       {data.party === 'D' ? (
-        <div className="border-blue-500 border-4">
+        <div className="border-blue-600 border-4 hover:bg-blue-600">
           <Link href={`/profile/${data.id}`}>
             <p>
               {data.first_name} {data.last_name} {data.state}
@@ -13,7 +13,7 @@ const CongressPerson = ({ data }) => {
           </Link>
         </div>
       ) : (
-        <div className="border-red-800 border-4">
+        <div className="border-red-600 border-4 hover:bg-red-600">
           <Link href={`/profile/${data.id}`}>
             <p>
               {data.first_name} {data.last_name} {data.state}
