@@ -3,7 +3,7 @@ import { Timeline } from 'react-twitter-widgets';
 
 const TwitterTimeline = ({ screenName }) => {
   return (
-    <>
+    <div className="w-1/3 absolute right-5 top-72 h-full">
       <Timeline
         dataSource={{
           sourceType: 'profile',
@@ -14,7 +14,7 @@ const TwitterTimeline = ({ screenName }) => {
           width: '700',
         }}
       />
-    </>
+    </div>
   );
 };
 
