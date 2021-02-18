@@ -2,21 +2,21 @@ import React, { useEffect, useState } from 'react';
 import * as member from '../api/propublica/member';
 import CongressPerson from '../../components/CongressPerson';
 import SearchForm from '../../components/SearchForm';
-import NavBar from '../../components/NavBar/NavBar'
+import NavBar from '../../components/NavBar/NavBar';
 
 const SearchHouse = () => {
   const [houseData, setHouseData] = useState();
   const [searchInput, setSearchInput] = useState();
   const [backButton, setBackButton] = useState();
 
-  const loadCongressMembers = () => {
+  const loadHouseMembers = () => {
     const house = member.getAllHouseMembers();
 
     house.then(({ results }) => setHouseData(results[0].members));
   };
 
   useEffect(() => {
-    loadCongressMembers();
+    loadHouseMembers();
   }, []);
 
   const filterHelper = (el) =>
@@ -26,20 +26,19 @@ const SearchHouse = () => {
     e.preventDefault();
     if (houseData) {
       const filteredReps = houseData.filter(filterHelper);
-      const filteredSenate = senateData.filter(filterHelper);
       setHouseData(filteredReps);
       setBackButton(true);
     }
   };
 
   const handleBackClick = () => {
-    loadCongressMembers();
+    loadHouseMembers();
     setBackButton(false);
   };
 
   return (
     <div>
-      <NavBar/>
+      <NavBar />
       <h1>Congress</h1>
       <SearchForm
         handleFormSubmit={handleFormSubmit}

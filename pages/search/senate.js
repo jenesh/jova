@@ -9,17 +9,15 @@ const SearchSenate = () => {
   const [searchInput, setSearchInput] = useState();
   const [backButton, setBackButton] = useState();
 
-  const loadCongressMembers = () => {
+  const loadSenateMembers = () => {
     const senate = member.getAllSenateMembers();
 
     senate.then(({ results }) => setSenateData(results[0].members));
   };
 
   useEffect(() => {
-    loadCongressMembers();
+    loadSenateMembers();
   }, []);
-
-  console.log('senate info', senateData);
 
   const filterHelper = (el) =>
     el.state.toLowerCase() === searchInput.toLowerCase();
@@ -34,13 +32,13 @@ const SearchSenate = () => {
   };
 
   const handleBackClick = () => {
-    loadCongressMembers();
+    loadSenateMembers();
     setBackButton(false);
   };
 
   return (
     <div>
-      <NavBar/>
+      <NavBar />
       <h1>Congress</h1>
       <SearchForm
         handleFormSubmit={handleFormSubmit}
